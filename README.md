@@ -1,8 +1,8 @@
 [![Tests](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml/badge.svg)](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml)
 
-# hetzner-dyndns-updater
+# hetzner-ddns-updater
 
-hetzner-dyndns-updater is a lightweight service designed to periodically check for changes in your external IP address and update a DNS record at Hetzner when necessary. This project simplifies the process of keeping your DNS records up-to-date with your dynamic IP address.
+hetzner-ddns-updater is a lightweight service designed to periodically check for changes in your external IP address and update a DNS record at Hetzner when necessary. This project simplifies the process of keeping your DNS records up-to-date with your dynamic IP address.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ hetzner-dyndns-updater is a lightweight service designed to periodically check f
 
 ## Configuration
 
-To configurehetzner-dyndns-updater, you can use environment variables. Here are the available configuration parameters:
+To configure hetzner-ddns-updater, you can use environment variables. Here are the available configuration parameters:
 
 | Environment Variable  | Default Value | Description                                                      |
 | --------------------- | ------------- | ---------------------------------------------------------------- |
@@ -39,7 +39,7 @@ These metrics provide insights into the update activity of the service, helping 
 
 ## Running with Docker
 
-You can easily run hetzner-dyndns-updater as a Docker container. Here's an example command to start the service:
+You can easily run hetzner-ddns-updater as a Docker container. Here's an example command to start the service:
 
 ```shell
 docker run -d \
