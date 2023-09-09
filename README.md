@@ -1,3 +1,5 @@
+[![Tests](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml/badge.svg)](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml)
+
 # hetzner-dyndns-updater
 
 hetzner-dyndns-updater is a lightweight service designed to periodically check for changes in your external IP address and update a DNS record at Hetzner when necessary. This project simplifies the process of keeping your DNS records up-to-date with your dynamic IP address.
