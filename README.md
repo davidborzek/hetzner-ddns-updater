@@ -1,4 +1,6 @@
+[![Build and publish docker image](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/build-publish-docker.yml/badge.svg)](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/build-publish-docker.yml)
 [![Tests](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml/badge.svg)](https://github.com/davidborzek/hetzner-ddns-updater/actions/workflows/tests.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/davidborzek/hetzner-ddns-updater)](https://goreportcard.com/report/github.com/davidborzek/hetzner-ddns-updater)
 
 # hetzner-ddns-updater
 
