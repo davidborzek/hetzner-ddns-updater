@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/caarlos0/env/v9 v9.0.0
 	github.com/creasty/defaults v1.7.0
-	github.com/go-playground/validator/v10 v10.15.3
+	github.com/go-playground/validator/v10 v10.15.4
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/jarcoal/httpmock v1.3.1
 	github.com/joho/godotenv v1.5.1
