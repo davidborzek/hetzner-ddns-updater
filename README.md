@@ -16,17 +16,18 @@ hetzner-ddns-updater is a lightweight service designed to periodically check for
 
 To configure hetzner-ddns-updater, you can use environment variables. Here are the available configuration parameters:
 
-| Environment Variable  | Default Value | Description                                                      |
-| --------------------- | ------------- | ---------------------------------------------------------------- |
-| `HDU_ADDRESS`         | `:8080`       | The address and port on which the service will listen.           |
-| `HDU_API_TOKEN`       | Required      | Your Hetzner API token for authentication.                       |
-| `HDU_RECORD_ID`       | Required      | The ID of the DNS record to be updated.                          |
-| `HDU_ZONE_ID`         | Required      | The ID of the DNS zone where the record resides.                 |
-| `HDU_RECORD_NAME`     | `@`           | The DNS record name to be updated (e.g., subdomain).             |
-| `HDU_RECORD_TTL`      | `60`          | Time to live (TTL) for the DNS record in seconds.                |
-| `HDU_INTERVAL`        | `5m`          | The interval at which the service checks for IP address changes. |
-| `HDU_METRICS_ENABLED` | `false`       | Enable or disable Prometheus metrics.                            |
-| `HDU_METRICS_TOKEN`   |               | Token to secure access to Prometheus metrics when enabled.       |
+| Environment Variable     | Default Value                       | Description                                                       |
+| ------------------------ | ----------------------------------- | ----------------------------------------------------------------- |
+| `HDU_ADDRESS`            | `:8080`                             | The address and port on which the service will listen.            |
+| `HDU_API_TOKEN`          | Required                            | Your Hetzner API token for authentication.                        |
+| `HDU_RECORD_ID`          | Required                            | The ID of the DNS record to be updated.                           |
+| `HDU_ZONE_ID`            | Required                            | The ID of the DNS zone where the record resides.                  |
+| `HDU_RECORD_NAME`        | `@`                                 | The DNS record name to be updated (e.g., subdomain).              |
+| `HDU_RECORD_TTL`         | `60`                                | Time to live (TTL) for the DNS record in seconds.                 |
+| `HDU_INTERVAL`           | `5m`                                | The interval at which the service checks for IP address changes.  |
+| `HDU_METRICS_ENABLED`    | `false`                             | Enable or disable Prometheus metrics.                             |
+| `HDU_METRICS_TOKEN`      |                                     | Token to secure access to Prometheus metrics when enabled.        |
+| `HDU_PUBLIC_IP_PROVIDER` | `https://api.ipify.org?format=text` | The api url to a route that returns your public ip as plain text. |
 
 ## Metrics
 

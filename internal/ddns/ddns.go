@@ -1,12 +1,10 @@
 package ddns
 
 import (
-	"io"
-	"net/http"
-
 	"github.com/davidborzek/hetzner-ddns-updater/internal/config"
 	"github.com/davidborzek/hetzner-ddns-updater/internal/metrics"
 	"github.com/davidborzek/hetzner-ddns-updater/pkg/hetzner"
+	"github.com/davidborzek/hetzner-ddns-updater/pkg/publicip"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -25,7 +23,7 @@ func NewUpdater(cfg *config.Config, client hetzner.Client) *updater {
 }
 
 func (u *updater) Update() {
-	currentIp, err := getExternalIP()
+	currentIp, err := publicip.IPv4()
 	if err != nil {
 		metrics.UpdateFailedCounter.Inc()
 
@@ -61,19 +59,4 @@ func (u *updater) Update() {
 
 	u.lastIp = currentIp
 	metrics.UpdateCounter.Inc()
-}
-
-func getExternalIP() (string, error) {
-	resp, err := http.Get("https://api.ipify.org?format=text")
-	if err != nil {
-		return "", err
-	}
-
-	defer resp.Body.Close()
-	ip, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return "", err
-	}
-
-	return string(ip), nil
 }

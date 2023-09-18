@@ -9,6 +9,7 @@ import (
 	"github.com/davidborzek/hetzner-ddns-updater/internal/handler"
 	"github.com/davidborzek/hetzner-ddns-updater/internal/metrics"
 	"github.com/davidborzek/hetzner-ddns-updater/pkg/hetzner"
+	"github.com/davidborzek/hetzner-ddns-updater/pkg/publicip"
 	"github.com/davidborzek/hetzner-ddns-updater/pkg/scheduler"
 	log "github.com/sirupsen/logrus"
 )
@@ -30,6 +31,8 @@ func main() {
 	if cfg.MetricsEnabled {
 		metrics.EnableMetrics()
 	}
+
+	publicip.SetProviderURL(cfg.PublicIPProvider)
 
 	updater := ddns.NewUpdater(cfg, hetzner.New(cfg.ApiToken))
 	go scheduler.Schedule(cfg.Interval, updater.Update)
