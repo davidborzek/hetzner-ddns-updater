@@ -17,15 +17,16 @@ var (
 )
 
 type Config struct {
-	Address        string        `env:"ADDRESS" default:":8080"`
-	ApiToken       string        `env:"API_TOKEN" validate:"required"`
-	RecordID       string        `env:"RECORD_ID" validate:"required"`
-	ZoneID         string        `env:"ZONE_ID" validate:"required"`
-	RecordName     string        `env:"RECORD_NAME" default:"@"`
-	RecordTTL      uint          `env:"RECORD_TTL" default:"60"`
-	Interval       time.Duration `env:"INTERVAL" default:"5m"`
-	MetricsEnabled bool          `env:"METRICS_ENABLED" default:"false"`
-	MetricsToken   string        `env:"METRICS_TOKEN"`
+	Address          string        `env:"ADDRESS" default:":8080"`
+	ApiToken         string        `env:"API_TOKEN" validate:"required"`
+	RecordID         string        `env:"RECORD_ID" validate:"required"`
+	ZoneID           string        `env:"ZONE_ID" validate:"required"`
+	RecordName       string        `env:"RECORD_NAME" default:"@"`
+	RecordTTL        uint          `env:"RECORD_TTL" default:"60"`
+	Interval         time.Duration `env:"INTERVAL" default:"5m"`
+	MetricsEnabled   bool          `env:"METRICS_ENABLED" default:"false"`
+	MetricsToken     string        `env:"METRICS_TOKEN"`
+	PublicIPProvider string        `env:"PUBLIC_IP_PROVIDER" default:"https://api.ipify.org?format=text"`
 }
 
 func Load() (*Config, error) {
