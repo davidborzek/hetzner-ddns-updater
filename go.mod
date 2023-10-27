@@ -3,6 +3,7 @@ module github.com/davidborzek/hetzner-ddns-updater
 go 1.21
 
 require (
+	github.com/caarlos0/env/v10 v10.0.0
 	github.com/caarlos0/env/v9 v9.0.0
 	github.com/creasty/defaults v1.7.0
 	github.com/go-playground/validator/v10 v10.15.5
