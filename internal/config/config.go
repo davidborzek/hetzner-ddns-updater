@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/caarlos0/env/v10"
+	"github.com/caarlos0/env/v11"
 	"github.com/creasty/defaults"
 	"github.com/go-playground/validator/v10"
 	"github.com/joho/godotenv"
