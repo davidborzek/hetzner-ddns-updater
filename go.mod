@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/caarlos0/env/v11 v11.2.2
-	github.com/creasty/defaults v1.7.0
+	github.com/creasty/defaults v1.8.0
 	github.com/go-playground/validator/v10 v10.22.0
 	github.com/go-resty/resty/v2 v2.14.0
 	github.com/jarcoal/httpmock v1.3.1
