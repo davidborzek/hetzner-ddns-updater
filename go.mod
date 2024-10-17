@@ -1,6 +1,8 @@
 module github.com/davidborzek/hetzner-ddns-updater
 
-go 1.21
+go 1.22
+
+toolchain go1.23.2
 
 require (
 	github.com/caarlos0/env/v11 v11.2.2
@@ -12,7 +14,7 @@ require (
 	github.com/prometheus/client_golang v1.20.5
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
-	go.uber.org/mock v0.4.0
+	go.uber.org/mock v0.5.0
 )
 
 require (
