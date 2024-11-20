@@ -8,7 +8,7 @@ require (
 	github.com/caarlos0/env/v11 v11.2.2
 	github.com/creasty/defaults v1.8.0
 	github.com/go-playground/validator/v10 v10.23.0
-	github.com/go-resty/resty/v2 v2.16.0
+	github.com/go-resty/resty/v2 v2.16.1
 	github.com/jarcoal/httpmock v1.3.1
 	github.com/joho/godotenv v1.5.1
 	github.com/prometheus/client_golang v1.20.5
