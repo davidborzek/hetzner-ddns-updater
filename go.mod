@@ -7,7 +7,7 @@ toolchain go1.24.0
 require (
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/creasty/defaults v1.8.0
-	github.com/go-playground/validator/v10 v10.24.0
+	github.com/go-playground/validator/v10 v10.25.0
 	github.com/go-resty/resty/v2 v2.16.5
 	github.com/jarcoal/httpmock v1.3.1
 	github.com/joho/godotenv v1.5.1
