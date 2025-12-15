@@ -1,4 +1,4 @@
-FROM golang:1.25.5-alpine3.17 AS base
+FROM golang:1-alpine AS base
 
 RUN adduser -D -H hetzner-ddns-updater
 
