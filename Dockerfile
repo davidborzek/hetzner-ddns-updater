@@ -1,11 +1,11 @@
-FROM golang:1.21.5-alpine3.17 AS base
+FROM golang:1.25.5-alpine3.17 AS base
 
 RUN adduser -D -H hetzner-ddns-updater
 
 ENV GO111MODULE=on \
-    CGO_ENABLED=0 \
-    GOOS=linux \
-    GOARCH=amd64
+  CGO_ENABLED=0 \
+  GOOS=linux \
+  GOARCH=amd64
 
 WORKDIR /build
 
@@ -13,11 +13,11 @@ COPY . .
 
 RUN go mod download
 
-FROM base as build
+FROM base AS build
 
 RUN go build -o hetzner-ddns-updater -tags prod main.go
 
-FROM scratch as prod
+FROM scratch AS prod
 
 COPY --from=build /etc/passwd /etc/passwd
 COPY --from=build /etc/group /etc/group
