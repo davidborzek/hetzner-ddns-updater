@@ -8,26 +8,29 @@ hetzner-ddns-updater is a lightweight service designed to periodically check for
 
 ## Table of Contents
 
-- [Configuration](#configuration)
-- [Metrics](#metrics)
-- [Running with Docker](#running-with-docker)
+- [hetzner-ddns-updater](#hetzner-ddns-updater)
+  - [Table of Contents](#table-of-contents)
+  - [Configuration](#configuration)
+  - [Metrics](#metrics)
+  - [Running with Docker](#running-with-docker)
 
 ## Configuration
 
 To configure hetzner-ddns-updater, you can use environment variables. Here are the available configuration parameters:
 
-| Environment Variable     | Default Value                       | Description                                                       |
-| ------------------------ | ----------------------------------- | ----------------------------------------------------------------- |
-| `HDU_ADDRESS`            | `:8080`                             | The address and port on which the service will listen.            |
-| `HDU_API_TOKEN`          | Required                            | Your Hetzner API token for authentication.                        |
-| `HDU_RECORD_ID`          | Required                            | The ID of the DNS record to be updated.                           |
-| `HDU_ZONE_ID`            | Required                            | The ID of the DNS zone where the record resides.                  |
-| `HDU_RECORD_NAME`        | `@`                                 | The DNS record name to be updated (e.g., subdomain).              |
-| `HDU_RECORD_TTL`         | `60`                                | Time to live (TTL) for the DNS record in seconds.                 |
-| `HDU_INTERVAL`           | `5m`                                | The interval at which the service checks for IP address changes.  |
-| `HDU_METRICS_ENABLED`    | `false`                             | Enable or disable Prometheus metrics.                             |
-| `HDU_METRICS_TOKEN`      |                                     | Token to secure access to Prometheus metrics when enabled.        |
-| `HDU_PUBLIC_IP_PROVIDER` | `https://api.ipify.org?format=text` | The api url to a route that returns your public ip as plain text. |
+| Environment Variable     | Default Value                       | Description                                                          |
+| ------------------------ | ----------------------------------- | -------------------------------------------------------------------- |
+| `HDU_ADDRESS`            | `:8080`                             | The address and port on which the service will listen.               |
+| `HDU_API_TOKEN`          | Required                            | Your Hetzner API token for authentication.                           |
+| `HDU_RECORD_ID`          | Required                            | The ID of the DNS record to be updated.                              |
+| `HDU_ZONE_ID`            | Required                            | The ID of the DNS zone where the record resides.                     |
+| `HDU_RECORD_NAME`        | `@`                                 | The DNS record name to be updated (e.g., subdomain).                 |
+| `HDU_RECORD_TTL`         | `60`                                | Time to live (TTL) for the DNS record in seconds.                    |
+| `HDU_INTERVAL`           | `5m`                                | The interval at which the service checks for IP address changes.     |
+| `HDU_METRICS_ENABLED`    | `false`                             | Enable or disable Prometheus metrics.                                |
+| `HDU_METRICS_TOKEN`      |                                     | Token to secure access to Prometheus metrics when enabled.           |
+| `HDU_PUBLIC_IP_PROVIDER` | `https://api.ipify.org?format=text` | The api url to a route that returns your public ip as plain text.    |
+| `HDU_HETZNER_BACKEND`    | `dns-console`                       | The backend to use for DNS updates. [Use hetzner-console when possible](https://docs.hetzner.com/networking/dns/faq/beta) |
 
 ## Metrics
 
@@ -49,6 +52,7 @@ docker run -d \
      -e "HDU_API_TOKEN=<your_hetzner_api_token>" \
      -e "HDU_RECORD_ID=<your_record_id>" \
      -e "HDU_ZONE_ID=<your_zone_id>" \
+     -e "HDU_HETZNER_BACKEND=hetzner-console" \n
      -p 8080:8080 \
      ghcr.io/davidborzek/hetzner-ddns-updater:latest
 ```
