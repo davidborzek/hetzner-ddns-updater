@@ -27,6 +27,7 @@ type Config struct {
 	MetricsEnabled   bool          `env:"METRICS_ENABLED" default:"false"`
 	MetricsToken     string        `env:"METRICS_TOKEN"`
 	PublicIPProvider string        `env:"PUBLIC_IP_PROVIDER" default:"https://api.ipify.org?format=text"`
+	HetznerBackend   string        `env:"HETZNER_BACKEND" default:"dns-console"`
 }
 
 func Load() (*Config, error) {
