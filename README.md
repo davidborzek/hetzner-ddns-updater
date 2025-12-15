@@ -30,7 +30,7 @@ To configure hetzner-ddns-updater, you can use environment variables. Here are t
 | `HDU_METRICS_ENABLED`    | `false`                             | Enable or disable Prometheus metrics.                                |
 | `HDU_METRICS_TOKEN`      |                                     | Token to secure access to Prometheus metrics when enabled.           |
 | `HDU_PUBLIC_IP_PROVIDER` | `https://api.ipify.org?format=text` | The api url to a route that returns your public ip as plain text.    |
-| `HDU_HETZNER_BACKEND`    | `dns-console`                       | The backend to use for DNS updates. [Use hetzner-console when possible](https://docs.hetzner.com/networking/dns/faq/beta) |
+| `HDU_HETZNER_BACKEND`    | `dns-console`                       | The backend to use for DNS updates. [Use `hetzner-console` when possible](https://docs.hetzner.com/networking/dns/faq/beta) |
 
 ## Metrics
 
