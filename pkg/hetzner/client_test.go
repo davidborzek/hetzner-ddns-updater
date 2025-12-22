@@ -19,12 +19,12 @@ const (
 	invalidToken = "invalidToken"
 )
 
-func TestUpdateRecord(t *testing.T) {
+func TestUpdateDNSConsoleRecord(t *testing.T) {
 	c := &http.Client{}
 	httpmock.ActivateNonDefault(c)
 	defer httpmock.Reset()
 
-	hetznerClient := hetzner.NewWithClient(c, authToken)
+	hetznerClient := hetzner.NewDNSConsoleWithClient(c, authToken)
 
 	record := hetzner.Record{
 		ZoneID: "someZoneID",
@@ -50,12 +50,12 @@ func TestUpdateRecord(t *testing.T) {
 	assert.Nil(t, err)
 }
 
-func TestUpdateRecordReturnsErrUnauthorized(t *testing.T) {
+func TestUpdateDNSConsoleRecordReturnsErrUnauthorized(t *testing.T) {
 	c := &http.Client{}
 	httpmock.ActivateNonDefault(c)
 	defer httpmock.Reset()
 
-	hetznerClient := hetzner.NewWithClient(c, invalidToken)
+	hetznerClient := hetzner.NewDNSConsoleWithClient(c, invalidToken)
 
 	httpmock.RegisterMatcherResponder(
 		"PUT",
@@ -72,12 +72,12 @@ func TestUpdateRecordReturnsErrUnauthorized(t *testing.T) {
 	assert.Equal(t, hetzner.ErrUnauthorized, err)
 }
 
-func TestUpdateRecordReturnsRequestFailedError(t *testing.T) {
+func TestUpdateDNSConsoleRecordReturnsRequestFailedError(t *testing.T) {
 	c := &http.Client{}
 	httpmock.ActivateNonDefault(c)
 	defer httpmock.Reset()
 
-	hetznerClient := hetzner.NewWithClient(c, authToken)
+	hetznerClient := hetzner.NewDNSConsoleWithClient(c, authToken)
 
 	httpmock.RegisterMatcherResponder(
 		"PUT",
@@ -95,12 +95,12 @@ func TestUpdateRecordReturnsRequestFailedError(t *testing.T) {
 	assert.Equal(t, "request failed with status 500", err.Error())
 }
 
-func TestUpdateRecordReturnsError(t *testing.T) {
+func TestUpdateDNSConsoleRecordReturnsError(t *testing.T) {
 	c := &http.Client{}
 	httpmock.ActivateNonDefault(c)
 	defer httpmock.Reset()
 
-	hetznerClient := hetzner.NewWithClient(c, authToken)
+	hetznerClient := hetzner.NewDNSConsoleWithClient(c, authToken)
 	httpmock.RegisterMatcherResponder(
 		"PUT",
 		"https://dns.hetzner.com/api/v1/records/123456789",

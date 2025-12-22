@@ -1,6 +1,8 @@
 package hetzner
 
 type (
+	RecordType string
+
 	Record struct {
 		ID     string     `json:"id,omitempty"`
 		ZoneID string     `json:"zone_id"`
@@ -9,6 +11,14 @@ type (
 		Value  string     `json:"value"`
 		TTL    uint       `json:"ttl"`
 	}
+)
 
-	RecordType string
+type (
+	HetznerConsoleRRSet struct {
+		Records []HetznerConsoleRecord `json:"records"`
+	}
+
+	HetznerConsoleRecord struct {
+		Value string `json:"value"`
+	}
 )
