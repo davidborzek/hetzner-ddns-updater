@@ -29,12 +29,26 @@ func main() {
 	}
 
 	if cfg.MetricsEnabled {
+		log.Info("Metrics enabled")
 		metrics.EnableMetrics()
 	}
 
 	publicip.SetProviderURL(cfg.PublicIPProvider)
 
-	updater := ddns.NewUpdater(cfg, hetzner.New(cfg.ApiToken))
+	var updater *ddns.Updater
+
+	switch cfg.HetznerBackend {
+	case "dns-console":
+		updater = ddns.NewUpdater(cfg, hetzner.NewDNSConsole(cfg.ApiToken))
+		log.Warn("Using deprecated DNS Console. See https://docs.hetzner.com/networking/dns/faq/beta")
+	case "hetzner-console":
+		updater = ddns.NewUpdater(cfg, hetzner.NewHetznerConsole(cfg.ApiToken))
+		log.Info("Using Hetzner Console  API")
+
+	default:
+		log.Fatalf("unknown backend: %s, Available: dns-console , hetzner-console", cfg.HetznerBackend)
+	}
+
 	go scheduler.Schedule(cfg.Interval, updater.Update)
 
 	log.WithField("addr", cfg.Address).
