@@ -8,21 +8,21 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-type updater struct {
+type Updater struct {
 	cfg    *config.Config
 	client hetzner.Client
 
 	lastIp string
 }
 
-func NewUpdater(cfg *config.Config, client hetzner.Client) *updater {
-	return &updater{
+func NewUpdater(cfg *config.Config, client hetzner.Client) *Updater {
+	return &Updater{
 		cfg:    cfg,
 		client: client,
 	}
 }
 
-func (u *updater) Update() {
+func (u *Updater) Update() {
 	currentIp, err := publicip.IPv4()
 	if err != nil {
 		metrics.UpdateFailedCounter.Inc()
