@@ -2,7 +2,7 @@ module github.com/davidborzek/hetzner-ddns-updater
 
 go 1.25.0
 
-toolchain go1.26.3
+toolchain go1.26.4
 
 require (
 	github.com/caarlos0/env/v11 v11.4.1
