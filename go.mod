@@ -1,13 +1,13 @@
 module github.com/davidborzek/hetzner-ddns-updater
 
-go 1.25.0
+go 1.26.0
 
 toolchain go1.27.1
 
 require (
 	github.com/caarlos0/env/v11 v11.4.1
 	github.com/creasty/defaults v1.11.0
-	github.com/go-playground/validator/v10 v10.30.4
+	github.com/go-playground/validator/v10 v10.30.5
 	github.com/go-resty/resty/v2 v2.17.2
 	github.com/jarcoal/httpmock v1.4.2
 	github.com/joho/godotenv v1.5.1
@@ -36,10 +36,10 @@ require (
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
-	golang.org/x/crypto v0.55.0 // indirect
-	golang.org/x/net v0.57.0 // indirect
-	golang.org/x/sys v0.47.0 // indirect
-	golang.org/x/text v0.41.0 // indirect
+	golang.org/x/crypto v0.57.0 // indirect
+	golang.org/x/net v0.58.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
